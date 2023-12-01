@@ -3,14 +3,14 @@ f = open("test.txt", "r")
 
 lines = [x.strip() for x in f]
 
-digts = "123456789"
+digits = "123456789"
 
 val = 0
 
 for line in lines:
     num = ""
     for char in line:
-        if char in digts:
+        if char in digits:
             num += char
 
     final = num[0] + num[len(num) - 1]
