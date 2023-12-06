@@ -8,14 +8,12 @@ ans = 1
 time = int("".join(lines[0].split(": ")[1].split()))
 dist = int("".join(lines[1].split(": ")[1].split()))
 
-left = 0
-right = time
-
-
 def check(num):
     return (num) * (time - num) < dist
 
-
+# find max value w/ binary search
+left = 0
+right = time
 while left < right-1:
     mid = (left + right) // 2
     if check(mid):
@@ -24,6 +22,8 @@ while left < right-1:
         left = mid
 
 a_max = left
+
+# find min value with binary search
 left = 0
 right = time
 while left < right-1:
