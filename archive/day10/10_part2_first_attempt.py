@@ -1,3 +1,6 @@
+# my first try at part 2
+# does not work for the case in which the enclosed area is inaccessible to the outside
+
 f = open("input.txt", "r")
 # f = open("test.txt", "r")
 
@@ -100,7 +103,7 @@ while len(next) != 0:
     row, col = next.pop(0)
     # print(row, col)
     if (row, col) in visited:
-        pass
+        continue
     visited.add((row, col))
     new_row = row + 1
     new_col = col + 1
