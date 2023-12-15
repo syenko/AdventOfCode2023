@@ -4,13 +4,13 @@ f = open("input.txt", "r")
 lines = [x.strip() for x in f]
 instructions = lines[0].split(",")
 
-ans = 0
 
 def h_alg(char, start_val) -> int:
     start_val += ord(char)
     start_val *= 17
     start_val = start_val % 256
     return start_val
+
 
 def h_on_str(str) -> int:
     start = 0
@@ -19,8 +19,10 @@ def h_on_str(str) -> int:
 
     return start
 
+
 boxes = [{} for i in range(256)]
 
+# add lenses to boxes
 for instruction in instructions:
     if "=" in instruction:
         key, length = instruction.split("=")
@@ -35,8 +37,8 @@ for instruction in instructions:
         if key in boxes[box].keys():
             del boxes[box][key]
 
-    # ans += h_on_str(instruction)
-
+# tally scores
+ans = 0
 for i, box in enumerate(boxes):
     if len(box.keys()) > 0:
         print("box {}: {}".format(i, box))
